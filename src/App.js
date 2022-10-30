@@ -9,10 +9,10 @@ import "./App.css";
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />}>
-        <Route index element={<Home />} />
-        <Route path="addtodo" element={<AddTodo />} />
-        <Route path="navigation" element={<Navigation />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/addtodo" element={<AddTodo />} />
+      <Route path="/navigation" element={<Navigation />} >
+          <Route index element={<Home />} />
       </Route>
     </Routes>
   );
