@@ -1,6 +1,6 @@
 import { TODO_ACTION_TYPES } from "./todo.types";
 
-export const TODO_INITIAL_STATE = {
+ const TODO_INITIAL_STATE = {
     todoList: [],
 };
 

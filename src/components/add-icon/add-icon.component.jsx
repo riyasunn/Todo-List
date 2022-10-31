@@ -1,13 +1,11 @@
 import { ReactComponent as PlusIcon } from'../../assets/plus-icon.svg';
-// import { useDispatch } from 'react-redux';
 
-const AddIcon = (props) => {
-    const {className} = props;
-    // const dispatch = useDispatch();
+const AddIcon = () => {
+    
 
     return(
         <div>
-            <PlusIcon className={className} />
+            <PlusIcon  />
         </div>
     )
 }

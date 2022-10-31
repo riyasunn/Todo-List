@@ -11,7 +11,7 @@ const Navigation = () => {
                     <img src={Logo} alt='todo' className='logo'/>
                 </LogoContainer>
                 <AddLink to='/addtodo'>
-                    <AddIcon className='add-icon'/>
+                    <AddIcon />
                 </AddLink>
             </NavigationContainer>
             <Outlet />

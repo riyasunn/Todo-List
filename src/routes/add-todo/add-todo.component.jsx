@@ -23,13 +23,17 @@ const AddTodo = () => {
     const todoItem = {
         title: titleInput,
         description: descriptionInput,
+        
     }
 
     const dispatch = useDispatch();
     const todoList = useSelector(selectTodoList);
     const navigate = useNavigate();
 
-    const buttonHandler = () => {
+    const cancelButtonHandler = () => {
+        navigate('/navigation');
+    }
+    const addButtonHandler = () => {
         dispatch(addItemToList(todoList, todoItem));
         
         navigate('/navigation');
@@ -40,8 +44,8 @@ const AddTodo = () => {
     return(
         <>
             <div>
-                <Button name='Cancel'/>
-                <Button name='Add' onClick={buttonHandler}/>
+                <Button name='Cancel' onClick={cancelButtonHandler}/>
+                <Button name='Add' onClick={addButtonHandler}/>
             </div>
             
             <div>
