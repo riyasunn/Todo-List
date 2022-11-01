@@ -16,9 +16,10 @@ export const LogoContainer = styled(Link)`
     padding:25px;
 `;
 
-export const AddLink = styled(Link)`
+export const AddIconContainer = styled.div`
     height: 100%;
     width:70px;
     margin-top:50px;
     cursor:pointer;
+    
 `;

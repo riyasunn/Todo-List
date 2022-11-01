@@ -1,3 +1,4 @@
+import { AddTodoContainer } from './add-todo.style'
 import Button from "../../components/button/button.component";
 import ColorTag from "../../components/color-tag/color-tag.component";
 import { useState } from 'react';
@@ -48,7 +49,7 @@ const AddTodo = () => {
    
 
     return(
-        <>
+        <AddTodoContainer>
             <div>
                 <Button name='Cancel' onClick={cancelButtonHandler}/>
                 <Button name='Add' onClick={addButtonHandler}/>
@@ -78,7 +79,7 @@ const AddTodo = () => {
                 <ColorTag />       
             </div>
             
-        </>
+        </AddTodoContainer>
     )
 }
 

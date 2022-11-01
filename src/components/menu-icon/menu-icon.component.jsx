@@ -17,8 +17,8 @@ const MenuIcon = () => {
 
   return (
     <>
-      <div onClick={toggleIsMenuOpen}>
-        <EllipsisIcon />
+      <div >
+        <EllipsisIcon onClick={toggleIsMenuOpen} />
       </div>
       {isMenuOpen  && <MenuDropdown/>}
     </>

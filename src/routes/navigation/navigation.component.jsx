@@ -1,6 +1,7 @@
 import Logo from '../../assets/logo.png';
 import AddIcon from '../../components/add-icon/add-icon.component';
-import { NavigationContainer, LogoContainer, AddLink } from './navigation.styles';
+
+import { NavigationContainer, LogoContainer, AddIconContainer } from './navigation.styles';
 import { Outlet } from 'react-router-dom';
 
 const Navigation = () => {
@@ -10,9 +11,9 @@ const Navigation = () => {
                 <LogoContainer to='/navigation' >
                     <img src={Logo} alt='todo' className='logo'/>
                 </LogoContainer>
-                <AddLink to='/addtodo'>
+                <AddIconContainer >
                     <AddIcon />
-                </AddLink>
+                </AddIconContainer>
             </NavigationContainer>
             <Outlet />
         </>
