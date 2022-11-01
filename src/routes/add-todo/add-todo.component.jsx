@@ -20,11 +20,17 @@ const AddTodo = () => {
         setDescriptionInput(e.target.value);
     }
 
-    const todoItem = {
-        title: titleInput,
-        description: descriptionInput,
-        
-    }
+    const createToDoItem = (titleInput, descriptionInput) => {
+        const id = Math.floor(Math.random()*10000)
+        const todoItem = {
+            id: id,
+            title: titleInput,
+            description: descriptionInput,
+        };
+        return todoItem;
+    };
+
+
 
     const dispatch = useDispatch();
     const todoList = useSelector(selectTodoList);
@@ -34,7 +40,7 @@ const AddTodo = () => {
         navigate('/navigation');
     }
     const addButtonHandler = () => {
-        dispatch(addItemToList(todoList, todoItem));
+        dispatch(addItemToList(todoList, createToDoItem(titleInput, descriptionInput)));
         
         navigate('/navigation');
     }

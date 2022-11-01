@@ -12,7 +12,7 @@ const TodoList = () => {
         
             <div>
                 {todoList.map((todoItem) => 
-                <TodoForm key={todoItem.title} title={todoItem.title} description={todoItem.description}/>)}
+                <TodoForm key={todoItem.id} title={todoItem.title} description={todoItem.description}/>)}
             </div>
 
 

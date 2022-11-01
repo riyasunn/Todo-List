@@ -5,7 +5,7 @@ const MenuDropdown = () => {
 
     return(
         <MenuDropdownContainer>
-            <div className="edit-link" to="/addtodo">
+            <div className="edit-link" >
                 <Link>Edit...</Link>
             </div>
             <div>
