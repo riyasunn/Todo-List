@@ -5,7 +5,7 @@ import { selectIsMenuOpen } from "../../store/menu/menu.selector";
 
 const TodoForm = ({title, description}) => {
     // const {title, description} = props;
-    const isMenuOpen = useSelector(selectIsMenuOpen);
+    // const isMenuOpen = useSelector(selectIsMenuOpen);
     // console.log(isMenuOpen);
 
     return(
@@ -15,7 +15,7 @@ const TodoForm = ({title, description}) => {
             </div>
             <div>
                 <MenuIcon /> 
-                {isMenuOpen && <MenuDropdown />}
+             {/* {isMenuOpen && <MenuDropdown />}*/}
             </div>   
             
             <h2>{description}</h2>
