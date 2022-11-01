@@ -11,7 +11,7 @@ export const todoReducer = (
     const { type, payload } = action;
 
     switch (type) {
-        case TODO_ACTION_TYPES.SET_TODOLIST:
+        case TODO_ACTION_TYPES.SET_ADD_TODO:
             return {...state, todoList: payload};
         default:
             return state;

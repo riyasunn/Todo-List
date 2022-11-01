@@ -9,6 +9,7 @@ const MenuIcon = () => {
   const toggleIsMenuOpen = () => {
     dispatch(setIsMenuOpen(!isMenuOpen));
   };
+  
 
   return (
     <div onClick={toggleIsMenuOpen}>

@@ -12,7 +12,6 @@ export const menuReducer = (state = MENU_INITIAL_STATE, action = {}) => {
             return {
                 ...state, 
                 isMenuOpen: payload,
-               
             };
         default:
             return state;
