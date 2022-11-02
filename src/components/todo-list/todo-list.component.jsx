@@ -13,7 +13,7 @@ const TodoList = () => {
         
             <TodoListContainer>
                 {todoList.map((todoItem) => 
-                <TodoForm key={todoItem.id} title={todoItem.title} description={todoItem.description}/>)}
+                <TodoForm key={todoItem.id} todoItem={todoItem}/>)}
             </TodoListContainer>
 
 

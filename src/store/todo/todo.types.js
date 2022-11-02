@@ -1,4 +1,7 @@
 export const TODO_ACTION_TYPES = {
-    SET_ADD_TODO:'todo/SET_ADD_TODO',
+    SET_TODOList:'todo/SET_TODOList',
     SET_IS_ADD_TODO_OPEN:'todo/SET_IS_ADD_TODO_OPEN',
+    
+
+
 }

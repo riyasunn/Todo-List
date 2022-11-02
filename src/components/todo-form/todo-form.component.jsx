@@ -4,7 +4,8 @@ import {TodoFormContainer} from './todo-form.style';
 // import { useSelector } from "react-redux";
 // import { selectIsMenuOpen } from "../../store/menu/menu.selector";
 
-const TodoForm = ({title, description}) => {
+const TodoForm = ({todoItem}) => {
+    const {title, description} = todoItem
     // const {title, description} = props;
     // const isMenuOpen = useSelector(selectIsMenuOpen);
     // console.log(isMenuOpen);
@@ -15,8 +16,7 @@ const TodoForm = ({title, description}) => {
                 <h1>{title}</h1>
             </div>
             <div>
-                <MenuIcon /> 
-             {/* {isMenuOpen && <MenuDropdown />}*/}
+                <MenuIcon todoItem={todoItem}/> 
             </div>   
             
             <h2>{description}</h2>

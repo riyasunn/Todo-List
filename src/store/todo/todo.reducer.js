@@ -12,12 +12,12 @@ export const todoReducer = (
     const { type, payload } = action;
 
     switch (type) {
-        case TODO_ACTION_TYPES.SET_ADD_TODO:
+        case TODO_ACTION_TYPES.SET_TODOList:
             return {...state, todoList: payload};
 
         case TODO_ACTION_TYPES.SET_IS_ADD_TODO_OPEN:
             return {...state, isAddTodoOpen:payload};
-            
+
         default:
             return state;
     }
