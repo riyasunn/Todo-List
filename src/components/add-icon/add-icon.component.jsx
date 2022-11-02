@@ -1,17 +1,22 @@
-import { IconContainer } from './add-icon.style'
+// import { IconContainer } from './add-icon.style'
 import { ReactComponent as PlusIcon } from'../../assets/plus-icon.svg';
 import AddTodo from '../add-todo/add-todo.component';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsAddTodoOpen } from '../../store/todo/todo.action';
+import { selectIsAddTodoOpen } from '../../store/todo/todo.selector';
 
 const AddIcon = () => {
-    const [isAddIconOpen, setIsAddIconOpen] = useState(false);
-    const toggleIsAddIconOpen = () => setIsAddIconOpen(!isAddIconOpen);
+    
+    const dispatch = useDispatch();
+    const isAddTodoOpen = useSelector(selectIsAddTodoOpen);
+
+    const ToggleIsAddTodoOpen = () => dispatch(setIsAddTodoOpen(!isAddTodoOpen));
 
     return(
             <div >
-                <PlusIcon  onClick={toggleIsAddIconOpen}/>
+                <PlusIcon  onClick={ToggleIsAddTodoOpen}/>
                 <div >
-                    {isAddIconOpen && <AddTodo />}
+                    {isAddTodoOpen && <AddTodo />}
                 </div>
             </div>
     )

@@ -1,3 +1,13 @@
+import { createSelector } from 'reselect';
 
-export const selectTodoList = (state) => state.todo.todoList;
+const selectTodoReducer = (state) => state.todo;
 
+export const selectTodoList = createSelector(
+    [selectTodoReducer],
+    (todo) => todo.todoList
+);
+
+export const selectIsAddTodoOpen = createSelector(
+    [selectTodoReducer],
+    (todo) => todo.isAddTodoOpen
+);

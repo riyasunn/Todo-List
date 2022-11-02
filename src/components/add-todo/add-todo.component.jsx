@@ -4,8 +4,9 @@ import ColorTag from "../../components/color-tag/color-tag.component";
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToList } from "../../store/todo/todo.action";
+import { setIsAddTodoOpen } from '../../store/todo/todo.action';
 import { selectTodoList } from "../../store/todo/todo.selector";
-import { useNavigate } from "react-router-dom";
+import { selectIsAddTodoOpen } from '../../store/todo/todo.selector';
 
 const AddTodo = () => {
     
@@ -31,19 +32,17 @@ const AddTodo = () => {
         return todoItem;
     };
 
-
+    
 
     const dispatch = useDispatch();
+    const isAddTodoOpen = useSelector(selectIsAddTodoOpen);
     const todoList = useSelector(selectTodoList);
-    const navigate = useNavigate();
 
-    const cancelButtonHandler = () => {
-        navigate('/navigation');
-    }
+    const ToggleIsAddTodoOpen = () => dispatch(setIsAddTodoOpen(!isAddTodoOpen));
+    
     const addButtonHandler = () => {
         dispatch(addItemToList(todoList, createToDoItem(titleInput, descriptionInput)));
-        
-        navigate('/navigation');
+        ToggleIsAddTodoOpen();
     }
  
    
@@ -51,7 +50,9 @@ const AddTodo = () => {
     return(
         <AddTodoContainer>
             <div>
-                <Button name='Cancel' onClick={cancelButtonHandler}/>
+                <Button name='Cancel' onClick={ToggleIsAddTodoOpen}/>
+            </div>
+            <div>
                 <Button name='Add' onClick={addButtonHandler}/>
             </div>
             
