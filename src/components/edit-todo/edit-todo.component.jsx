@@ -1,4 +1,4 @@
-import { AddTodoContainer } from './add-todo.style'
+import { EditTodoContainer } from './edit-todo.style'
 import Button from "../../components/button/button.component";
 import ColorTag from "../../components/color-tag/color-tag.component";
 import { useState } from 'react';
@@ -8,15 +8,15 @@ import { setIsAddTodoOpen } from '../../store/todo/todo.action';
 import { selectTodoList } from "../../store/todo/todo.selector";
 import { selectIsAddTodoOpen } from '../../store/todo/todo.selector';
 
-const AddTodo = () => {
-    
+const EditTodo = ({todoItem}) => {
+    const { title, description, id} = todoItem;
 
-    const [titleInput, setTitleInput] = useState("");
+    const [titleInput, setTitleInput] = useState(title);
     const onTitleChangeHandler = (e) => {
         setTitleInput(e.target.value);
     }
 
-    const [descriptionInput, setDescriptionInput] = useState("");
+    const [descriptionInput, setDescriptionInput] = useState(description);
     const onDescriptionChangeHandler = (e) => {
         setDescriptionInput(e.target.value);
     }
@@ -39,7 +39,7 @@ const AddTodo = () => {
 
     const ToggleIsAddTodoOpen = () => dispatch(setIsAddTodoOpen(!isAddTodoOpen));
     
-    const addButtonHandler = () => {
+    const saveButtonHandler = () => {
         dispatch(addItemToList(todoList, createToDoItem(titleInput, descriptionInput)));
         ToggleIsAddTodoOpen();
     }
@@ -47,12 +47,12 @@ const AddTodo = () => {
    
 
     return(
-        <AddTodoContainer>
+        <EditTodoContainer>
             <div>
                 <Button name='Cancel' onClick={ToggleIsAddTodoOpen}/>
             </div>
             <div>
-                <Button name='Add' onClick={addButtonHandler}/>
+                <Button name='Save' onClick={saveButtonHandler}/>
             </div>
             
             <div>
@@ -61,14 +61,14 @@ const AddTodo = () => {
                     <input 
                     type='text'
                     placeholder='add a title...'
-                    value={titleInput}
+                    value={ titleInput }
                     className='title-input'
                     onChange={onTitleChangeHandler}/>
                     <h2>Description</h2>
                     <input
                     type='text'
                     placeholder='add a description...'
-                    value={descriptionInput}
+                    value={ descriptionInput }
                     className='description-input'
                     onChange={onDescriptionChangeHandler}/>
                 </form>
@@ -79,8 +79,8 @@ const AddTodo = () => {
                 <ColorTag />       
             </div>
             
-        </AddTodoContainer>
+        </EditTodoContainer>
     )
 }
 
-export default AddTodo;
+export default EditTodo;

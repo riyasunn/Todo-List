@@ -5,18 +5,16 @@ import { ReactComponent as EllipsisIcon } from "../../assets/ellipsis.svg";
 import { useState } from "react";
 import MenuDropdown from "../menu-dropdown/menu-dropdown.component";
 
-const MenuIcon = ({todoItem}) => {
-
+const MenuIcon = ({ todoItem }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleIsMenuOpen = () => setIsMenuOpen(!isMenuOpen);
 
-
   return (
     <>
-      <div >
+      <div>
         <EllipsisIcon onClick={toggleIsMenuOpen} />
       </div>
-      {isMenuOpen  && <MenuDropdown todoItem={todoItem}/>}
+      {isMenuOpen && <MenuDropdown todoItem={todoItem} />}
     </>
   );
 };

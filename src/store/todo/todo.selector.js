@@ -11,3 +11,8 @@ export const selectIsAddTodoOpen = createSelector(
     [selectTodoReducer],
     (todo) => todo.isAddTodoOpen
 );
+
+export const selectIsEditTodoOpen = createSelector(
+    [selectTodoReducer],
+    (todo) => todo.isEditTodoOpen
+);

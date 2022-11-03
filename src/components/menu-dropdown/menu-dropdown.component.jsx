@@ -1,24 +1,36 @@
-import { Link } from "react-router-dom"
 import { MenuDropdownContainer } from './menu-dropdown.style';
 import { useSelector, useDispatch } from "react-redux";
-import { selectTodoList } from '../../store/todo/todo.selector';
-import { delItemToList } from '../../store/todo/todo.action';
+import { selectIsEditTodoOpen, selectTodoList } from '../../store/todo/todo.selector';
+import { delItemToList, setIsEditTodoOpen } from '../../store/todo/todo.action';
+import EditTodo from '../edit-todo/edit-todo.component';
 
 const MenuDropdown = ({todoItem}) => {
    const todoList = useSelector(selectTodoList);
+   const isEditTodoOpen = useSelector(selectIsEditTodoOpen);
    const dispatch = useDispatch();
 
-   const delTodoHandler = () =>
+   const delTodoHandler = () =>{
     dispatch(delItemToList(todoList, todoItem));
+    };
 
+    const editTodoHandler = () => {
+        // console.log("editTodoHandler");
+        dispatch(setIsEditTodoOpen(!isEditTodoOpen));
+        // console.log(isEditTodoOpen);
+    };
+
+    console.log(isEditTodoOpen);
 
     return(
         <MenuDropdownContainer>
-            <div className="edit-link" >
-                <Link>Edit...</Link>
+            <div  >
+                <span onClick={editTodoHandler}>Edit...</span> 
+                {
+                    isEditTodoOpen && <EditTodo todoItem={todoItem} />
+                }
             </div>
             <div onClick={delTodoHandler}>
-                <span >Delete</span> 
+                <span >Delete</span>
             </div>
         </MenuDropdownContainer>
     )

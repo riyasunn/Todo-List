@@ -1,7 +1,7 @@
 export const TODO_ACTION_TYPES = {
     SET_TODOList:'todo/SET_TODOList',
     SET_IS_ADD_TODO_OPEN:'todo/SET_IS_ADD_TODO_OPEN',
-    
+    SET_IS_EDIT_TODO_OPEN:'todo/SET_IS_EDIT_TODO_OPEN',
 
 
 }
