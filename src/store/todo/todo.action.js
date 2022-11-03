@@ -14,6 +14,23 @@ export const addItemToList = (todoList, itemToAdd) => {
 
 };
 
+const editItem = (todoList, itemToEdit) => {
+       return todoList.map(
+        (todoItem) => 
+            todoItem.id === itemToEdit.id ? 
+            {...todoItem, title: itemToEdit.title, description: itemToEdit.description} :
+            todoItem
+            );
+       
+};
+
+
+export const editTodoList = (todolist, itemToEdit) => {
+    const newTodoList = editItem(todolist, itemToEdit);
+    return createAction(TODO_ACTION_TYPES.SET_TODOList, newTodoList);
+};
+
+
 
 const delItem = (todoList, itemToDel) => {
     return (todoList.filter((todoList) => todoList.id !== itemToDel.id));
@@ -24,6 +41,7 @@ export const delItemToList = (todoList, itemToDel) => {
     const newTodoList = delItem(todoList, itemToDel);
     return createAction(TODO_ACTION_TYPES.SET_TODOList, newTodoList);
 };
+
 
 
 

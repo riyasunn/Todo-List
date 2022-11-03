@@ -3,10 +3,11 @@ import Button from "../../components/button/button.component";
 import ColorTag from "../../components/color-tag/color-tag.component";
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemToList } from "../../store/todo/todo.action";
-import { setIsAddTodoOpen } from '../../store/todo/todo.action';
+import { editTodoList } from "../../store/todo/todo.action";
+import { setIsEditTodoOpen } from '../../store/todo/todo.action';
 import { selectTodoList } from "../../store/todo/todo.selector";
-import { selectIsAddTodoOpen } from '../../store/todo/todo.selector';
+import { selectIsEditTodoOpen } from "../../store/todo/todo.selector.js"
+// import { selectIsAddTodoOpen } from '../../store/todo/todo.selector';
 
 const EditTodo = ({todoItem}) => {
     const { title, description, id} = todoItem;
@@ -22,7 +23,8 @@ const EditTodo = ({todoItem}) => {
     }
 
     const createToDoItem = (titleInput, descriptionInput) => {
-        const id = Math.floor(Math.random()*10000)
+        // const id = Math.floor(Math.random()*10000)
+        
         const todoItem = {
             id: id,
             title: titleInput,
@@ -34,14 +36,14 @@ const EditTodo = ({todoItem}) => {
     
 
     const dispatch = useDispatch();
-    const isAddTodoOpen = useSelector(selectIsAddTodoOpen);
+    const isEditTodoOpen = useSelector(selectIsEditTodoOpen);
     const todoList = useSelector(selectTodoList);
 
-    const ToggleIsAddTodoOpen = () => dispatch(setIsAddTodoOpen(!isAddTodoOpen));
+    const ToggleIsEditTodoOpen = () => dispatch(setIsEditTodoOpen(!isEditTodoOpen));
     
     const saveButtonHandler = () => {
-        dispatch(addItemToList(todoList, createToDoItem(titleInput, descriptionInput)));
-        ToggleIsAddTodoOpen();
+        dispatch(editTodoList(todoList, createToDoItem(titleInput, descriptionInput)));
+        ToggleIsEditTodoOpen();
     }
  
    
@@ -49,7 +51,7 @@ const EditTodo = ({todoItem}) => {
     return(
         <EditTodoContainer>
             <div>
-                <Button name='Cancel' onClick={ToggleIsAddTodoOpen}/>
+                <Button name='Cancel' onClick={ToggleIsEditTodoOpen}/>
             </div>
             <div>
                 <Button name='Save' onClick={saveButtonHandler}/>
