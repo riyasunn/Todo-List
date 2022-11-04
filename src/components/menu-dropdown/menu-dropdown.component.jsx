@@ -1,8 +1,8 @@
 import { MenuDropdownContainer } from './menu-dropdown.style';
 import { useSelector, useDispatch } from "react-redux";
-import { selectIsEditTodoOpen, selectTodoList } from '../../store/todo/todo.selector';
+import {  selectIsEditTodoOpen, selectTodoList } from '../../store/todo/todo.selector';
 import { delItemToList, setIsEditTodoOpen } from '../../store/todo/todo.action';
-import EditTodo from '../edit-todo/edit-todo.component';
+import AddTodo from '../add-todo/add-todo.component';
 
 const MenuDropdown = ({todoItem}) => {
    const todoList = useSelector(selectTodoList);
@@ -19,14 +19,14 @@ const MenuDropdown = ({todoItem}) => {
         // console.log(isEditTodoOpen);
     };
 
-    console.log(isEditTodoOpen);
+    // console.log(isEditTodoOpen);
 
     return(
         <MenuDropdownContainer>
             <div  >
                 <span onClick={editTodoHandler}>Edit...</span> 
                 {
-                    isEditTodoOpen && <EditTodo todoItem={todoItem} />
+                    isEditTodoOpen && <AddTodo todoItem={todoItem} />
                 }
             </div>
             <div onClick={delTodoHandler}>
